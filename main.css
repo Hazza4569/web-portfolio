@@ -4,6 +4,8 @@
     display: flex;
     top: 0;
     position: sticky;
+    z-index: 1;
+    background-color: white;
 }
 
 #controlbar {
@@ -15,7 +17,8 @@
 
 .pagelink {
     display: flex;
-    border: 1px solid blue;
+    border: 1px solid black;
+    border-bottom: 2px solid black;
     flex: auto;
     justify-content: center;
     align-items: center;
@@ -23,7 +26,7 @@
 
 #page-title {
 }
-
+/*
 #page-experience {
     background-color: yellow;
 }
@@ -31,7 +34,7 @@
 #page-projects {
     background-color: orange;
 }
-
+*/
 .invisible {
     visibility: hidden;
     position: absolute;
@@ -49,10 +52,12 @@
     align-self: center;
     top: 50vh;
     width: 100vw;
+    z-index: 2;
 }
 
 #harry {
     position: relative;
+    color: #800020;
 }
 
 #subtitle-div {
@@ -64,19 +69,46 @@
 #subtitle {
     position: relative;
     text-align: center;
-    top: 45pt;
+    top: 80px;
 }
 
 h1{
-    font-size: 45pt;
+    font-size: 80px;
     margin:0;
 }
 
 h2{
-    font-size: 16pt;
+    font-size: 25pt;
     margin:0;
 }
 
 body{
     font-family: Helvetica;
+}
+
+.topline {
+    position: absolute;
+    margin-top: 15vh;
+    width: 0vw;
+    border: 0px;
+    height: 1px;
+    background-color: black;
+}
+
+#leftline {
+    left: 0;
+}
+
+#rightline {
+    right: 0;
+}
+
+.fullline {
+    width: 50vw;
+}
+
+.finaltitle {
+    position: absolute;
+    font-size: 6vh;
+    top: 0;
 }
