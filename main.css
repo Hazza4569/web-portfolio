@@ -6,6 +6,7 @@
     position: sticky;
     z-index: 1;
     background-color: white;
+    flex-direction: column;
 }
 
 #controlbar {
@@ -57,7 +58,27 @@
 
 #harry {
     position: relative;
+}
+
+#harry, #fixedharry {
     color: #800020;
+}
+
+#fixedharry {
+    text-align: center;
+    width: 100vw;
+    font-size: 7vh;
+    /*
+    position: relative;
+    top: 0vh;
+    */
+    height: 7vh;
+}
+
+#toptitle {
+    display: flex;
+    align-items: center;
+    height: 7vh;
 }
 
 #subtitle-div {
@@ -101,14 +122,4 @@ body{
 
 #rightline {
     right: 0;
-}
-
-.fullline {
-    width: 50vw;
-}
-
-.finaltitle {
-    position: absolute;
-    font-size: 6vh;
-    top: 0;
 }

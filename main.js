@@ -15,6 +15,8 @@ class Page
     {
         this.div.classList.remove('invisible')
         this.div.classList.add('visible')
+        this.div.style.borderBottom = '1px solid black'
+        //if (this.name == "NULL") this.div.style.borderTop = '0px'
     }
 }
 
@@ -50,6 +52,7 @@ site.AddPage( new Page('Experience', 'page-experience') )
 site.AddPage( new Page('Projects', 'page-projects') )
 
 harry = document.getElementById("harry")
+harry2 = document.getElementById("fixedharry")
 l_line = document.getElementById("leftline")
 r_line = document.getElementById("rightline")
 title_initial_pos = '50vh'
@@ -65,26 +68,24 @@ function updateTitle() {
         0;
     // Set animation end point
     threshold_offset = window.innerHeight*.41
-    /*
     // Define fixed style for past the end point (prevent desync jiggling)
-    if ( page_offset >= threshold_offset )
+    if ( page_offset > threshold_offset )
     {
-        harry.classList.add('finaltitle')
-        l_line.classList.add('fullline')
-        r_line.classList.add('fullline')
+        harry.classList.add('invisible')
+        harry2.classList.remove('invisible')
+        l_line.style.width = '50vw'
+        r_line.style.width = '50vw'
         return
     }
     // Else: remove fixed styles and calculate postions
-    harry.classList.remove('finaltitle')
-    l_line.classList.remove('fullline')
-    r_line.classList.remove('fullline')
-    */
+    harry.classList.remove('invisible')
+    harry2.classList.add('invisible')
     // Change top position of 
     diff = Math.max(page_offset - threshold_offset, 0)
     harry.style.top = diff+'px'
     // Font size
-    initial_size = 80
-    target_size = .06*window.innerHeight
+    initial_size = 80 //px
+    target_size = .07*window.innerHeight // i.e. 7vh
     progress = Math.min( page_offset, threshold_offset ) / threshold_offset
     harry.style.fontSize = (target_size*progress**2 + initial_size*(1-progress**2)) + 'px'
     // Closing lines
