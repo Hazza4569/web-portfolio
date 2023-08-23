@@ -20,22 +20,31 @@
     display: flex;
     border: 1px solid black;
     border-bottom: 2px solid black;
-    flex: auto;
+    flex: 1;
     justify-content: center;
     align-items: center;
 }
 
-#page-title {
-}
-/*
-#page-experience {
-    background-color: yellow;
+.pagelink a {
+    all: unset;
+    flex: 1;
+    font-size: 16pt;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
 }
 
-#page-projects {
-    background-color: orange;
+#fixedharry a {
+    width: 100%;
+    flex: 1;
+    z-index: 4;
 }
-*/
+
+#page-title {
+}
+
 .invisible {
     visibility: hidden;
     position: absolute;
@@ -44,7 +53,7 @@
 
 .visible {
     visibility: visible;
-    position: static;
+    position: relative;
 }
 
 #title-div {
@@ -65,20 +74,12 @@
 }
 
 #fixedharry {
-    text-align: center;
     width: 100vw;
-    font-size: 7vh;
-    /*
-    position: relative;
-    top: 0vh;
-    */
-    height: 7vh;
-}
-
-#toptitle {
+    font-size: 6vh;
+    height: 6vh;
     display: flex;
-    align-items: center;
-    height: 7vh;
+    justify-content: center;
+    text-align: center;
 }
 
 #subtitle-div {
@@ -116,10 +117,24 @@ body{
     background-color: black;
 }
 
-#leftline {
-    left: 0;
+#leftline { left: 0; }
+
+#rightline { right: 0; }
+
+#indicator{
+    position: absolute;
+    left: -100vw;
+    top: 0;
+    height: 9vh;
+    opacity: .5;
+    background-color: #800020;
+    z-index: 3;
 }
 
-#rightline {
-    right: 0;
+.anchor { /* for invisible spans to place anchor links correctly */
+    position: absolute;
+    left: 0;
+    top: -15vh;
+    height: 0;
+    width: 0;
 }

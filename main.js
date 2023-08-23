@@ -8,7 +8,7 @@ class Page
 
     SetHeight(height)
     {
-        this.div.style.height=height
+        this.div.style.height=height+'vh'
     }
 
     Activate()
@@ -26,7 +26,8 @@ class Website
     {
         this.titlebox = document.getElementById('titlebar')
         this.control_bar = document.getElementById('controlbar')
-        this.page_height = '85vh'
+        this.page_height = 85
+        this.pages = []
         //
         /*
         this.titlebox.style.backgroundColor = 'maroon'
@@ -37,9 +38,13 @@ class Website
 
     AddPage(page)
     {
+        this.pages.push(page)
         // Add button to control bar
         if ( page.name != 'NULL' ) this.control_bar.innerHTML +=
-            "<div class='pagelink'>"+page.name+"</div>";
+            "<div class='pagelink'>"+
+            "<a onclick='scrollToElement(\""+page.div.children[0].id+"\")'>"+
+            page.name+"</a>"+
+            "</div>";
         // Add page html to body
         page.SetHeight(this.page_height)
         page.Activate()
@@ -49,23 +54,28 @@ class Website
 site = new Website()
 site.AddPage( new Page('NULL', 'page-title') )
 site.AddPage( new Page('Experience', 'page-experience') )
+site.AddPage( new Page('Software', 'page-software') )
+site.AddPage( new Page('Analysis', 'page-analysis') )
 site.AddPage( new Page('Projects', 'page-projects') )
 
 harry = document.getElementById("harry")
 harry2 = document.getElementById("fixedharry")
+scroll_indicator = document.getElementById("indicator")
 l_line = document.getElementById("leftline")
 r_line = document.getElementById("rightline")
 title_initial_pos = '50vh'
-window.onscroll = updateTitle
-window.onresize = updateTitle
+window.onscroll = scrollEffects
+window.onresize = scrollEffects
 
-function updateTitle() {
+function scrollEffects() {
     // Get browser compatible scroll location:
     let page_offset =
         (pageYOffset) ? pageYOffset :
         (document.documentElement.clientHeight) ? document.documentElement.scrollTop :
         (document.body) ? document.body.scrollTop :
         0;
+    // Page highlight
+    updatePageIndicator(page_offset)
     // Set animation end point
     threshold_offset = window.innerHeight*.41
     // Define fixed style for past the end point (prevent desync jiggling)
@@ -94,4 +104,44 @@ function updateTitle() {
     linewidth = line_progress**3*50
     l_line.style.width = linewidth+'vw'
     r_line.style.width = linewidth+'vw'
+}
+
+function updatePageIndicator(scroll) {
+    // > box that moves along to scroll to each page. 
+    n_pages = site.pages.length
+    indicator_width = 100/(n_pages-1)
+    scroll_indicator.style.width = indicator_width + 'vw'
+    initial_position = -indicator_width
+    final_position = 100-indicator_width
+    bottom_scroll = ((n_pages-1)*site.page_height) * window.innerHeight/100 + 3
+    progress = scroll / bottom_scroll
+    scroll_indicator.style.left = initial_position*(1-progress) + progress*final_position+'vw'
+}
+
+function scrollToElement( id ) {
+    elem = document.getElementById( id )
+    //elem.scrollIntoView( {
+    //    behavior: 'smooth'
+    //})
+    scrollToLocation(document.documentElement, elem.parentElement.offsetTop-.15*window.innerHeight, 1000);
+}
+
+function scrollToTop() {
+    scrollToLocation(document.documentElement, 0, 600);
+}
+
+function scrollToLocation(scrollLayer, destination, duration) {
+    if (duration <= 0) {
+        return;
+    }
+    const difference = destination - scrollLayer.scrollTop;
+    const perTick = (difference / duration) * 10;
+
+    setTimeout(() => {
+        scrollLayer.scrollTop = scrollLayer.scrollTop + perTick;
+        if (scrollLayer.scrollTop === destination) {
+            return;
+        }
+        scrollToLocation(scrollLayer, destination, duration - 10);
+    }, 10);
 }
