@@ -56,6 +56,10 @@
     position: relative;
 }
 
+.pagediv {
+    overflow: auto;
+}
+
 #title-div {
     position: absolute;
     text-align: center;
@@ -75,8 +79,8 @@
 
 #fixedharry {
     width: 100vw;
-    font-size: 6vh;
-    height: 6vh;
+    font-size: min(6vh,12vw);
+    height:    min(6vh,12vw);
     display: flex;
     justify-content: center;
     text-align: center;
@@ -120,6 +124,8 @@ body{
 #leftline { left: 0; }
 
 #rightline { right: 0; }
+
+#leftline, #rightline { height: 2px; }
 
 #indicator{
     position: absolute;

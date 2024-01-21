@@ -1,9 +1,10 @@
 class Page
 {
-    constructor(name, div) 
+    constructor(name, div, file) 
     {
         this.name = name
         this.div = document.getElementById(div)
+        this.file = file
         // set name of anchor element, for URL # access
         if (this.name != "NULL") 
             this.div.children[0].setAttribute('id', this.name)
@@ -18,8 +19,28 @@ class Page
     {
         this.div.classList.remove('invisible')
         this.div.classList.add('visible')
-        this.div.style.borderBottom = '1px solid black'
-        //if (this.name == "NULL") this.div.style.borderTop = '0px'
+        this.div.style.borderBottom = '0px solid black'
+        if (this.name == "NULL") {
+            //this.div.style.borderTop = '0px'
+        } else {
+            this.FillContent()
+        }
+    }
+
+    FillContent()
+    {
+        // Get file with page content, insert into this page's div
+        let xhttp = new XMLHttpRequest();
+        let element = this.div
+        let input = this.file
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4) {
+                if (this.status == 200) {element.innerHTML += this.responseText}
+                if (this.status == 404) {console.log("Page not found: "+input)}
+            }
+        }
+        xhttp.open("GET", this.file, true);
+        xhttp.send();
     }
 }
 
@@ -56,9 +77,9 @@ class Website
 
 site = new Website()
 site.AddPage( new Page('NULL', 'page-title') )
-site.AddPage( new Page('Experience', 'page-one') )
-site.AddPage( new Page('Software',   'page-two') )
-site.AddPage( new Page('Analysis',   'page-three') )
-site.AddPage( new Page('Projects',   'page-four') )
+site.AddPage( new Page('About me', 'page-one', 'pages/about.html') )
+site.AddPage( new Page('Education',   'page-two', 'pages/education.html') )
+site.AddPage( new Page('Skills',   'page-three', 'pages/skills.html') )
+site.AddPage( new Page('Projects',   'page-four', 'pages/projects.html') )
 
 // Need to start populating pages, read from separate file which gives HTML code for a single page?

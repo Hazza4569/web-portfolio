@@ -1,0 +1,74 @@
+h1.page {
+    font-size:  50px;
+    text-align: center;
+    padding: 5pt;
+}
+
+#profile-pic {
+    width:  min(30vw, 50vh);
+    height:  min(30vw, 50vh);
+    object-fit: cover;
+    border-radius: 50%;
+    padding: 10pt;
+    align-self: center;
+}
+
+#body.page {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#body.page > #left > #upper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#body.page > #left > #upper > #right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#body.page > #left > #lower {
+    padding-left: 100px;
+    padding-top: 20px;
+}
+
+#body.page > #right {
+    flex-basis: 400px;
+    flex-grow: 1;
+    padding: 20px;
+    padding-left: 50px;
+}
+
+#body.page > #right > p {
+    flex: 1;
+}
+
+#job {
+    display: flex;
+    flex-direction: row;
+}
+#job > i {
+    align-self: center;
+    padding-right: 10px;
+}
+
+#loc-pin {
+    padding-right: 5px;
+}
+
+.page-content {
+    font-size: 20pt;
+    font-weight: normal;
+    text-align: left;
+}
+
+.page-content > p {
+    margin: 20px 0 20px 0;
+}
+
+.hl { color: #800020; }
+
+a { color: #800020; }
