@@ -1,6 +1,7 @@
 #titlebar {
     height: 15vh;
     width: 100vw;
+    max-width: 100%;
     display: flex;
     top: 0;
     position: sticky;
@@ -13,6 +14,7 @@
     display:flex;
     height: 9vh;
     width: 100vw;
+    max-width: 100%;
     align-self: start;
 }
 
@@ -66,6 +68,7 @@
     align-self: center;
     top: 50vh;
     width: 100vw;
+    max-width: 100%;
     z-index: 2;
 }
 
@@ -79,6 +82,7 @@
 
 #fixedharry {
     width: 100vw;
+    max-width: 100%;
     font-size: min(6vh,12vw);
     height:    min(6vh,12vw);
     display: flex;
@@ -90,6 +94,7 @@
     position: absolute;
     top: 50vh;
     width: 100vw;
+    max-width: 100%;
 }
 
 #subtitle {

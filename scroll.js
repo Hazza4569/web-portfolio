@@ -53,14 +53,14 @@ function scrollEffects() {
 
 function updatePageIndicator(scroll) {
     // > box that moves along to scroll to each page. 
-    n_pages = site.pages.length
-    indicator_width = 100/(n_pages-1)
-    scroll_indicator.style.width = indicator_width + 'vw'
+    n_pages = site.pages.length-1
+    indicator_width = 100/n_pages
+    scroll_indicator.style.width = indicator_width + '%'
     initial_position = -indicator_width
     final_position = 100-indicator_width
-    bottom_scroll = ((n_pages-1)*site.page_height) * window.innerHeight/100 + 3
+    bottom_scroll = (n_pages*site.page_height) * window.innerHeight/100
     progress = scroll / bottom_scroll
-    scroll_indicator.style.left = initial_position*(1-progress) + progress*final_position+'vw'
+    scroll_indicator.style.left = initial_position*(1-progress) + progress*final_position+'%'
 }
 
 function scrollToElement( id ) {

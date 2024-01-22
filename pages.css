@@ -19,27 +19,35 @@ h1.page {
     justify-content: center;
 }
 
+#body.page > #left {
+    padding-left: 5%;
+    padding-right: 30px;
+}
+
 #body.page > #left > #upper {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
 #body.page > #left > #upper > #right {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    white-space: nowrap;
 }
 
 #body.page > #left > #lower {
-    padding-left: 100px;
+    padding-left: 10px;
     padding-top: 20px;
+    margin: auto;
 }
 
 #body.page > #right {
     flex-basis: 400px;
     flex-grow: 1;
     padding: 20px;
-    padding-left: 50px;
+    padding-left: 30px;
+    padding-right: 5%;
 }
 
 #body.page > #right > p {
@@ -72,3 +80,5 @@ h1.page {
 .hl { color: #800020; }
 
 a { color: #800020; }
+
+a:hover { cursor: pointer; }
