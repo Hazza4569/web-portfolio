@@ -5,8 +5,8 @@ h1.page {
 }
 
 #profile-pic {
-    width:  min(30vw, 50vh);
-    height:  min(30vw, 50vh);
+    width:  min(25vw, 40vh);
+    height:  min(25vw, 40vh);
     object-fit: cover;
     border-radius: 50%;
     padding: 10pt;
@@ -45,13 +45,16 @@ h1.page {
 #body.page > #right {
     flex-basis: 400px;
     flex-grow: 1;
-    padding: 20px;
+    padding: 0px;
     padding-left: 30px;
     padding-right: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 #body.page > #right > p {
-    flex: 1;
+    margin: 10px 0 10px 0;
 }
 
 #job {
