@@ -1,0 +1,84 @@
+#body.edu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#body.edu > #right {
+    flex-grow: 1;
+    flex-basis: 400px;
+}
+
+#body.edu > #left {
+    margin-left: 5%;
+    margin-right: 15px;
+}
+
+#body.edu > #right {
+    margin-right: 5%;
+    margin-left: 15px;
+    display: flex;
+}
+
+#body.edu > #right > div {
+    flex-grow: 1;
+    padding-left: 23px;
+    overflow: auto;
+}
+
+.edu-logo {
+    width: 100px;
+}
+
+.edu-div {
+    display: flex;
+    margin: 10px 0 10px 0;
+}
+
+.edu-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 5px;
+}
+
+.edu-text > h1 {
+    font-size: 18pt;
+    font-weight: bold;
+}
+
+.edu-text > h2 {
+    font-size: 18pt;
+    font-weight: normal;
+}
+.edu-text > h2 > .added {
+    font-style: normal;
+    font-size: 13pt;
+}
+
+.edu-text > p {
+    font-size: 16pt;
+    margin: 0;
+}
+
+.edu-text > p.secondary {
+    font-size: 15pt;
+}
+
+/* boxy divs */
+#body.edu > div > div {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #800020;
+    border-radius: 20px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+
+h2.edu { color: #800020; }
+
+#body.edu > #left > div > h2 { padding-left: 13px; }
+
+.notopmargin { margin-top: 0; }
+.nobottommargin { margin-bottom: 0; }

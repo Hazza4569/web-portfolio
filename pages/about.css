@@ -1,0 +1,57 @@
+#profile-pic {
+    width:  min(25vw, 40vh);
+    height:  min(25vw, 40vh);
+    object-fit: cover;
+    border-radius: 50%;
+    padding: 10pt;
+    align-self: center;
+}
+
+#body.about {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#body.about > #left {
+    padding-left: 5%;
+    padding-right: 30px;
+}
+
+#body.about > #left > #upper {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+#body.about > #left > #upper > #right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+#body.about > #left > #lower {
+    padding-left: 10px;
+    padding-top: 20px;
+    margin: auto;
+}
+
+#body.about > #right {
+    flex-basis: 400px;
+    flex-grow: 1;
+    padding: 0px;
+    padding-left: 30px;
+    padding-right: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#body.about > #right > p {
+    margin: 10px 0 10px 0;
+}
+
+#loc-pin {
+    padding-right: 5px;
+}
+
