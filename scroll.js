@@ -2,6 +2,7 @@
 harry = document.getElementById("harry")
 harry2 = document.getElementById("fixedharry")
 scroll_indicator = document.getElementById("indicator")
+titlebar = document.getElementById("titlebar")
 l_line = document.getElementById("leftline")
 r_line = document.getElementById("rightline")
 
@@ -58,7 +59,7 @@ function updatePageIndicator(scroll) {
     scroll_indicator.style.width = indicator_width + '%'
     initial_position = -indicator_width
     final_position = 100-indicator_width
-    bottom_scroll = (n_pages*site.page_height) * window.innerHeight/100
+    bottom_scroll = document.documentElement.scrollHeight - site.pages[0].div.clientHeight - titlebar.clientHeight
     progress = scroll / bottom_scroll
     scroll_indicator.style.left = initial_position*(1-progress) + progress*final_position+'%'
 }
@@ -68,7 +69,7 @@ function scrollToElement( id ) {
     //elem.scrollIntoView( {
     //    behavior: 'smooth'
     //})
-    scrollToLocation(document.documentElement, elem.parentElement.offsetTop-.15*window.innerHeight, 1000);
+    scrollToLocation(document.documentElement, elem.parentElement.offsetTop-titlebar.clientHeight, 1000);
 }
 
 function scrollToTop() {
@@ -89,4 +90,10 @@ function scrollToLocation(scrollLayer, destination, duration) {
         }
         scrollToLocation(scrollLayer, destination, duration - 10);
     }, 10);
+}
+
+function scrollToPage( id ) {
+    page = document.getElementById( id )
+    scrollToLocation(document.documentElement, page.offsetTop-titlebar.clientHeight, 1000);
+    scrollToLocation(page, 0, 1000);
 }

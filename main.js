@@ -66,7 +66,7 @@ class Website
         // Add button to control bar
         if ( page.name != 'NULL' ) this.control_bar.innerHTML +=
             "<div class='pagelink'>"+
-            "<a onclick='scrollToElement(\""+page.div.children[0].id+"\")'>"+
+            "<a onclick='scrollToPage(\""+page.div.id+"\")'>"+
             page.name+"</a>"+
             "</div>";
         // Add page html to body
