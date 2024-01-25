@@ -1,12 +1,11 @@
+h1.edu {
+    color: var(--text-light);
+}
+
 #body.edu {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-}
-
-#body.edu > #right {
-    flex-grow: 1;
-    flex-basis: 400px;
 }
 
 #body.edu > #left {
@@ -18,11 +17,17 @@
     margin-right: 5%;
     margin-left: 15px;
     display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-basis: 400px;
+    justify-content: center;
 }
 
 #body.edu > #right > div {
-    flex-grow: 1;
+    flex: 0 1 200px;
     padding-left: 23px;
+    display: flex;
+    justify-content: center;
 }
 
 .edu-logo {
@@ -69,7 +74,8 @@
 #body.edu > div > div {
     display: flex;
     flex-direction: column;
-    border: 2px solid #800020;
+    /*border: 2px solid #800020;*/
+    background-color: var(--bg-1);
     border-radius: 20px;
     padding: 10px;
     margin-bottom: 10px;

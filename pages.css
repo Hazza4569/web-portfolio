@@ -14,8 +14,8 @@ h1.page {
     margin: 20px 0 20px 0;
 }
 
-.hl { color: #800020; }
-a { color: #800020; }
+.hl { color: var(--hl); }
+a { color: var(--hl); }
 a:hover { cursor: pointer; }
 
 
@@ -35,8 +35,8 @@ a:hover { cursor: pointer; }
     flex-basis: 350px;
     flex-grow: 1;
     border-radius: 7px;
-    background-color: #36454f;
-    color: #ffffff;
+    background-color: var(--bg-1d);
+    color: var(--text-dark);
     cursor: pointer;
     margin-right: 5px;
     margin-bottom: 5px;
@@ -64,7 +64,7 @@ a:hover { cursor: pointer; }
     background-color: #dd571c;
 }
 .infoblock > .tagline > .atlas {
-    background-color: #0b80c3;
+    background-color: var(--atlas-blue);
 }
 .infoblock > .tagline > .analysis {
     background-color: #187b30;

@@ -15,6 +15,7 @@ window.onresize = scrollEffects
 
 function scrollEffects() {
     // Adjust element height (failed to do achieve desired effect in CSS)
+    EducationPageStyleHack()
     //try {
     //    let edu_body = document.querySelector('#body.edu')
     //    edu_body.style.height = (edu_body.parentElement.offsetHeight - edu_body.offsetTop) + 'px'
@@ -34,8 +35,8 @@ function scrollEffects() {
     {
         harry.classList.add('invisible')
         harry2.classList.remove('invisible')
-        l_line.style.width = '50vw'
-        r_line.style.width = '50vw'
+        l_line.style.width = '50%'
+        r_line.style.width = '50%'
         return
     }
     // Else: remove fixed styles and calculate postions
@@ -53,8 +54,8 @@ function scrollEffects() {
     delayed_offset = Math.max(page_offset - window.innerHeight*.05, 0)
     line_progress = Math.min( delayed_offset, threshold_offset ) / threshold_offset
     linewidth = line_progress**3*50
-    l_line.style.width = linewidth+'vw'
-    r_line.style.width = linewidth+'vw'
+    l_line.style.width = linewidth+'%'
+    r_line.style.width = linewidth+'%'
 }
 
 function updatePageIndicator(scroll) {
