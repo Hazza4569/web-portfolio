@@ -8,6 +8,7 @@ class Page
         // set name of anchor element, for URL # access
         if (this.name != "NULL") 
             this.div.children[0].setAttribute('id', this.name)
+        this.loadEvent = new Event(name+'PageLoad')
     }
 
     SetHeight(height)
@@ -33,9 +34,13 @@ class Page
         let xhttp = new XMLHttpRequest();
         let element = this.div
         let input = this.file
+        const loadEvent = this.loadEvent
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4) {
-                if (this.status == 200) {element.innerHTML += this.responseText}
+                if (this.status == 200) {
+                    element.innerHTML += this.responseText
+                    document.dispatchEvent(loadEvent)
+                }
                 if (this.status == 404) {console.log("Page not found: "+input)}
             }
         }
@@ -73,6 +78,54 @@ class Website
         page.SetHeight(this.page_height)
         page.Activate()
     }
+}
+
+class InfoBlock
+{
+    constructor(container, taglist, title, brief)
+    {
+        this.container = container
+        this.taglist = taglist
+        this.title = title
+        this.brief = brief
+        // define tag text
+        this.tagDict = {
+            'research' : 'Research',
+            'atlas'    : 'ATLAS',
+            'analysis' : 'Physics analysis',
+            'upgrade'  : 'Detector upgrade'
+        }
+        // Create HTML elements and add them to the container
+        this.GenerateHTML()
+        this.container.appendChild(this.maindiv)
+    }
+
+    GenerateHTML()
+    {
+        // create infoblock div
+        this.maindiv = document.createElement('div')
+        this.maindiv.classList.add('infoblock')
+        // create tagline div
+        let tagline = document.createElement('div')
+        tagline.classList.add('tagline')
+        this.maindiv.appendChild(tagline)
+        // add tags to tagline
+        for ( var tag of this.taglist ) {
+            let tag_div = document.createElement('div')
+            tag_div.classList.add(tag)
+            tag_div.innerHTML += this.tagDict[tag]
+            tagline.appendChild(tag_div)
+        }
+        // add infoblock title
+        let h1 = document.createElement('h1')
+        h1.innerHTML += this.title
+        this.maindiv.appendChild(h1)
+        // add brief
+        let p = document.createElement('p')
+        p.innerHTML += this.brief
+        this.maindiv.appendChild(p)
+    }
+
 }
 
 site = new Website()

@@ -23,7 +23,6 @@
 #body.edu > #right > div {
     flex-grow: 1;
     padding-left: 23px;
-    overflow: auto;
 }
 
 .edu-logo {

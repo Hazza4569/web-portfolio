@@ -14,6 +14,11 @@ window.onscroll = scrollEffects
 window.onresize = scrollEffects
 
 function scrollEffects() {
+    // Adjust element height (failed to do achieve desired effect in CSS)
+    //try {
+    //    let edu_body = document.querySelector('#body.edu')
+    //    edu_body.style.height = (edu_body.parentElement.offsetHeight - edu_body.offsetTop) + 'px'
+    //} finally {}
     // Get browser compatible scroll location:
     let page_offset =
         (pageYOffset) ? pageYOffset :
