@@ -15,11 +15,8 @@ document.addEventListener('EducationPageLoad', function () {
     new InfoBlock(research_projects,
         ['research', 'atlas', 'upgrade'],
         'Algorithm Visualiser',
-        'Single-handedly produced the first ever measurement of a challenging physics process'
+        'Created a web app to display visualisations of hardware trigger algorithms for debugging firmware'
     )
-    new InfoBlock(research_projects, ['research', 'atlas', 'upgrade'], 'Algorithm Visualiser', 'brief here')
-    new InfoBlock(research_projects, ['research', 'atlas', 'upgrade'], 'Algorithm Visualiser', 'brief here')
-    new InfoBlock(research_projects, ['research', 'atlas', 'upgrade'], 'Algorithm Visualiser', 'brief here')
     EducationPageStyleHack();
 });
 
